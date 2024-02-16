@@ -50,24 +50,58 @@
 				</div>
 				<!-- topic-item -->
 				<div class="col-lg-4 col-sm-6 mb-4">
-					<a onclick="dpt()"  class="px-4 py-5 bg-white shadow text-center d-block match-height">
+					<a  class="  px-4 py-5 bg-white shadow text-center d-block match-height">
 						<i class="ti-credit-card icon text-primary d-block mb-4"></i>
-						<h3 class="mb-3 mt-0">{{$antri_dpt}}</h3>
-						<p class="mb-0">DPT</p>
+						<h3 class="mb-3 mt-0">{{$antri_dpt}} </h3>
+						<p class="mb-0">Total DPT</p>
 					</a>
+
+					<a onclick="dpt_perempuan()" class="px-4 py-5 bg-white shadow text-center d-block match-height" id="dpt_perempuan">
+						<i class="ti-credit-card icon text-primary d-block mb-4"></i>
+						<h3 class="mb-3 mt-0">{{$antri_dpt_perempuan}}</h3>
+						<p class="mb-0">DPT Perempuan</p>
+					</a>
+
+					<a onclick="dpt_laki()" class="px-4 py-5 bg-white shadow text-center d-block match-height" id="dpt_laki">
+						<i class="ti-credit-card icon text-primary d-block mb-4"></i>
+						<h3 class="mb-3 mt-0">{{$antri_dpt_laki}}</h3>
+						<p class="mb-0">DPT Laki-laki</p>
+					</a>
+
 				</div>
 				<div class="col-lg-4 col-sm-6 mb-4">
-					<a  onclick="dpttb()"   class="px-4 py-5 bg-white shadow text-center d-block match-height">
+					<a   class="px-4 py-5 bg-white shadow text-center d-block match-height">
 						<i class="ti-credit-card icon text-primary d-block mb-4"></i>
 						<h3 class="mb-3 mt-0">{{$antri_dpttb}}</h3>
 						<p class="mb-0">DPTTB</p>
 					</a>
+					<a  onclick="dpttb_perempuan()"   class="px-4 py-5 bg-white shadow text-center d-block match-height">
+						<i class="ti-credit-card icon text-primary d-block mb-4"></i>
+						<h3 class="mb-3 mt-0">{{$antri_dpttb_perempuan}}</h3>
+						<p class="mb-0">DPTTB Perempuan</p>
+					</a>
+					<a  onclick="dpttb_laki()"  class="px-4 py-5 bg-white shadow text-center d-block match-height">
+						<i class="ti-credit-card icon text-primary d-block mb-4"></i>
+						<h3 class="mb-3 mt-0">{{$antri_dpttb_laki}}</h3>
+						<p class="mb-0">DPTTB Laki-laki</p>
+					</a>
 				</div>
 				<div class="col-lg-4 col-sm-6 mb-4">
-					<a  onclick="dpk()"   class="px-4 py-5 bg-white shadow text-center d-block match-height">
+					<a  class="px-4 py-5 bg-white shadow text-center d-block match-height">
 						<i class="ti-credit-card icon text-primary d-block mb-4"></i>
 						<h3 class="mb-3 mt-0">{{$antri_dpk}}</h3>
 						<p class="mb-0">DPK</p>
+					</a>
+					</a>
+					<a  onclick="dpk_perempuan()"   class="px-4 py-5 bg-white shadow text-center d-block match-height">
+						<i class="ti-credit-card icon text-primary d-block mb-4"></i>
+						<h3 class="mb-3 mt-0">{{$antri_dpk_perempuan}}</h3>
+						<p class="mb-0">DPK Perempuan</p>
+					</a>
+					<a  onclick="dpk_laki()"  class="px-4 py-5 bg-white shadow text-center d-block match-height">
+						<i class="ti-credit-card icon text-primary d-block mb-4"></i>
+						<h3 class="mb-3 mt-0">{{$antri_dpk_laki}}</h3>
+						<p class="mb-0">DPK Laki-laki</p>
 					</a>
 				</div>
 			</div>
@@ -101,27 +135,53 @@
 	<!-- Main Script -->
 	<script src="/dot_template/assets/script.js"></script>
     <script >
-        function dpt(){
-            var audio = new Audio('/Audio/dpt.mp3')
-            audio.play()
-            audio.addEventListener('ended',function(){
-                location.href = "/antri_dpt/"+{{$antri_dpt}}+"/"+{{$antri_dpttb}}+"/"+{{$antri_dpk}}
-            })
-        }
-        function dpttb(){
+
+    function dpt_perempuan(){
+        var audio = new Audio('/Audio/dpt.mp3')
+        audio.play()
+        audio.addEventListener('ended',function(){
+            location.href = "/antri_dpt_perempuan/"+{{$antri_dpt_perempuan}}+"/"+{{$antri_dpt_laki}}+"/"+{{$antri_dpttb_perempuan}}+"/"+{{$antri_dpttb_laki}}+"/"+{{$antri_dpk_perempuan}}+"/"+{{$antri_dpk_laki}}
+        })
+        total_perempuan+=1;
+    }
+
+    function dpt_laki(){
+        var audio = new Audio('/Audio/dpt.mp3')
+        audio.play()
+        audio.addEventListener('ended',function(){
+            location.href = "/antri_dpt_laki/"+{{$antri_dpt_perempuan}}+"/"+{{$antri_dpt_laki}}+"/"+{{$antri_dpttb_perempuan}}+"/"+{{$antri_dpttb_laki}}+"/"+{{$antri_dpk_perempuan}}+"/"+{{$antri_dpk_laki}}
+        })
+    }
+	   function dpttb_perempuan(){
             var audio = new Audio('/Audio/dpttb.mp3')
             audio.play()
             audio.addEventListener('ended',function(){
-                location.href = "/antri_dpttb/"+{{$antri_dpt}}+"/"+{{$antri_dpttb}}+"/"+{{$antri_dpk}}
+                location.href = "/antri_dpttb_perempuan/"+{{$antri_dpt_perempuan}}+"/"+{{$antri_dpt_laki}}+"/"+{{$antri_dpttb_perempuan}}+"/"+{{$antri_dpttb_laki}}+"/"+{{$antri_dpk_perempuan}}+"/"+{{$antri_dpk_laki}}
             })
-        }
-        function dpk(){
+		}
+		function dpttb_laki(){
+            var audio = new Audio('/Audio/dpttb.mp3')
+            audio.play()
+            audio.addEventListener('ended',function(){
+                location.href = "/antri_dpttb_laki/"+{{$antri_dpt_perempuan}}+"/"+{{$antri_dpt_laki}}+"/"+{{$antri_dpttb_perempuan}}+"/"+{{$antri_dpttb_laki}}+"/"+{{$antri_dpk_perempuan}}+"/"+{{$antri_dpk_laki}}
+            })
+		}
+
+		function dpk_perempuan(){
             var audio = new Audio('/Audio/dpk.mp3')
             audio.play()
             audio.addEventListener('ended',function(){
-                location.href = "/antri_dpk/"+{{$antri_dpt}}+"/"+{{$antri_dpttb}}+"/"+{{$antri_dpk}}
+                location.href = "/antri_dpk_perempuan/"+{{$antri_dpt_perempuan}}+"/"+{{$antri_dpt_laki}}+"/"+{{$antri_dpttb_perempuan}}+"/"+{{$antri_dpttb_laki}}+"/"+{{$antri_dpk_perempuan}}+"/"+{{$antri_dpk_laki}}
             })
-        }
+		}
+		function dpk_laki(){
+            var audio = new Audio('/Audio/dpk.mp3')
+            audio.play()
+            audio.addEventListener('ended',function(){
+                location.href = "/antri_dpk_laki/"+{{$antri_dpt_perempuan}}+"/"+{{$antri_dpt_laki}}+"/"+{{$antri_dpttb_perempuan}}+"/"+{{$antri_dpttb_laki}}+"/"+{{$antri_dpk_perempuan}}+"/"+{{$antri_dpk_laki}}
+            })
+		}
+
     </script>
 </body>
 
